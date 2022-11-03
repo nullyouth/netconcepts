@@ -1,0 +1,14 @@
+internet is communicated through underwater cables placed in different continents. Internet has a distributed structure
+This avoids the Single Point of Failure problem
+There are ~468 underwater cables, these are the most important part of the internet today
+Some are 131 km long, some are 20k km long...
+Breaking one of this cables can cause the internet to crash down in a whole continent
+Almost 200 problems occur each year with these cables and the problems are substantially related to ships and natural
+ disasters
+In 2007 some sea pirates stole an 11 km long cable that was connecting Thailand, Vietnam, and Hong Kong. They sold this
+ long cable as scrap by dividing it into parts
+There are also intercontinental cables connecting countries through land
+All underwater cables are fiber optic cables
+They've chosen to use fiber optic because one disadvantage of copper is that as long the distance is, the more
+ probability to have errors in data transmission. Fiber optic cables have less error chances on long distances
+

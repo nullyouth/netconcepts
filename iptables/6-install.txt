@@ -1,0 +1,4 @@
+with debian and debian-based distros the default firewall that's gonna be installed is UFW ( Uncomplicated Firewall )
+with centos the default firewall is Firewall D
+these services use iptables, they're all interfaces for iptables. When dealing with iptables it is recommended to start
+ a fresh or to start directly from scratch

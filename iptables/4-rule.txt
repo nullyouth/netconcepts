@@ -1,0 +1,10 @@
+within a particular chain, we're are going to have rules ( firewall rules )
+user-defined commands that manipulate the network traffic
+rules e.g.: 
+    - i wan't you to block any ssh incoming connection ( INPUT chain ? )
+    - block http connections ( INPUT chain ? )
+
+the packet will be tested against each of these rules secuentially from the top to the bottom
+e.g.: if we have a packet coming in, and it's requesting an ssh connection, it is going to be tested against each rule
+ until it matches a valid rule. If it matches, a target is going to be set
+

@@ -1,0 +1,14 @@
+We can also think of a router as a device that allows our computer to communicate with a computer in another part of
+ the world. Connecting our LAN with an external LAN
+Internet connects all LANs in the world
+
+The internet consists of many routers connected to each other on an organized manner. There are other devices than
+ routers in the structure
+As the router allows to communicate our LAN with an external LAN, we can connect all the LANs in the world
+Internet consists of many routers connecting their LANs with each other
+
+A home-router consists of a combination of the switch device and the router
+Most home-routers have an access point feature (WAP) to use wireless technology
+
+If all home-routers were connected to a 'giant router' placed in the middle of the world, this would lead to a problem
+ called 'Single Point of Failure'. If the 'giant router' breaks, the whole internet crashes down

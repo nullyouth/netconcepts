@@ -1,0 +1,31 @@
+SWITCH ( and WAP ) and LAN
+
+Switch device if we want computers in the same environment to communicate with each other
+Then connect them to the switch through cables, generally CAT-5 || CAT-6 copper cables (copper conductors)
+Cat-6 are faster than Cat-5
+Cat => Category
+Some switches support fiber optic cables
+A switch cannot use wireless technology
+
+You should use an Access Point device if you want computers in the same environment to communicate wirelessly
+Named WAP (Wireless Access Point) or AP
+
+This communication in the same environment is known as Local Area Network (LAN)
+All houses in the world are actually LANs
+
+The message sent from one computer to another: packet (or frame)
+PCa sends packet to PCb:
+    packet goes from PCa to the switch
+    switch looks at the inside of the packet for the destination
+    switch sends packet to PCb
+
+A switch has various numbers of ports -> LAN ports where you connect the cables
+LAN ports are also in our computers
+
+The packet travels from one computer to another:
+    packet goes to the switch through the cable
+    the switch port gives the packet to the switch hardware
+    the hardware looks inside the packet to learn its destination
+    the hardware gives the packet to the destination switch port
+    the switch sends the packet to the desired destination PC and the packet travels very cozy and peaceful to the
+     destination pc's port

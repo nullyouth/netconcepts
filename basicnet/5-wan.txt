@@ -1,0 +1,44 @@
+WIDE AREA NETWORK ( WAN )
+
+a network consisting of a combination of different LANs
+thanks to WAN, we can ensure that LANs located in different places around the world can communicate as if they were in
+ the same LAN environment
+
+some companies use WAN technology to communicate their distributed offices
+
+thank's to the internet, we can already communicate two (or more) LANs
+then why we would need a WAN in the first place?
+internet is a public network, any person can connect to it, wherever and whenever they want
+
+there are many methods to set up a WAN, one of them is via VPN, because VPNs provides us with tunneling technology
+ (creating a special network connection over a public network) --- i don't know if tunneling works like this
+tunneling technology makes the packet act as if it's going through a physical tunnel between two routers
+
+(analogy)
+through the public network:
+    if you want to send a letter from house-a to house-b, the postman could see the letter contents
+with tunneling:
+    the letter would be enveloped and the postman couldn't see its contents (-> ENCAPSULATION)
+    even though we increased the security, there will still be vulnerabilities
+    so the letter must be encrypted in order to have the maximum security (-> ENCRYPTION)
+
+however, any system has vulnerabilities...
+
+with this VPN technology we can look at a basic WAN example
+PCa (from LANa) needs to send packet to PCb (on LANb):
+    packet flows from PCa to router-a
+    some changes will occur to the packet:
+        1st encryption
+        2nd encapsulation
+        with this, the tunnel is set up
+    packet travels through internet
+    packet reaches router-b
+    (DECAPSULATION process) -> take the original packet out of the tunnel --- idk if this happens at router-b or where
+     exactly,,, prob i have to read about tunneling and VPNs to have more understanding
+        wrapper packet is removed
+        encrypted packet is decrypted
+    router-b looks at the packet content and learns its destination
+    packet reaches PCb
+
+END TO END ENCRYPTION helps to protect the packets sent from our PC to another place (and vice versa) by being
+ permanently encrypted while traveling. Only the endpoints can decrypt the packet to obtain the original data

@@ -1,0 +1,15 @@
+ROUTER COMMUNICATES YOU WITH INTERNET
+
+A router enables a computer to communicate to the internet
+In order to perform this task, the router must be connected to the switch device by a copper cable
+A special cable from outside our house connects to our router. The cable is provided by our ISP
+So basically the router delivers the packets from the LAN to the internet
+
+PC sends packet to internet (the computer can communicate with internet):
+    sends packet to switch
+    switch looks the packet and understands that it wants to go to the internet
+    sends the packet to the router
+    router looks at the inside of the packet and understands that it wants to go to the internet
+    sends the packet through the ISP cable
+
+(the router has ports also (where you connect the cables))

@@ -1,0 +1,9 @@
+(( LINUX ))
+
+netfilter is the firewall framework
+iptables is the utility that is used to manage and control netfilter
+
+iptables is not just responsible of filtering traffic on a system or network. It also deals with important aspects of
+ networking like: NAT connections, packet modification, acting as a router, ...
+
+iptables can be used to filter incoming and outgoing packets

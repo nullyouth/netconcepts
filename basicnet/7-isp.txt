@@ -1,0 +1,71 @@
+internet service provider
+
+responsible of the transmission of packets between locations
+each isp controls specific routers
+local isps are responsible for small area communications
+                                                                    #global isp 3#--------#local isp 666#
+ #google.com#-|                                                     |     |                       |
+              |---#local isp 1#----#regional isp 1#-----#global isp 1#    |                       |
+    #house 2#-|                       |                       |           |                     #house 0#
+                                      |                       |           |
+    #house 3#-----#local isp 2#-------|                       #global isp 2#----#regional isp 2#
+                                                                                        |
+                                                                                        |
+                                                                                    #local isp 300#----#abcx.com#
+
+    #-local isp 2--------#             #-regional isp 1-------#
+    #                    #-------------#                      #
+    #  #POP#------#POP#  #             #----------------------#
+    #    |          |    #
+    #    |          |    #
+    #  #POP#------#POP#  #
+    #               |    #
+    #---------------|----#
+                    |
+                #house 3#
+
+house 3 connects to a local isp PoP (Point of Presence). This PoP is the first point to be able to connect to the
+ internet for this home
+that is how local isps connect different neighbourhoods
+
+different local isps connect over regional isps
+    local isp 1 and local isp 2 communicate through regional isp 1
+    local isps connect neighbourhoods and regional isps connect cities in a country
+
+global isps connect devices in different countries
+
+a local isp could be connected directly to a global isp that could make that local isp to access the global internet
+ fastly
+
+let's say we're in house 3 and want to connect to abcx.com
+our request message must pass over at least one global isp
+abcx.com will create the response message
+
+if we for example wanted to communicate with google.com...
+large companies want to communicate with customers as fast as possible, so they have distributed servers all around
+thanks to the proximity of google's server, the response time is low. However, they increase the response time with
+ PEERING
+
+peering is the technique which google establishes a connection with an isp to provide faster access to each server
+due to the direct connection, the packet passes through much less PoPs
+that's why watching videos in other platforms (other than youtube) take less speed. For example, udemy, it doesn't use
+ peering
+
+the network composed by each other set-up global isps is called INTERNET BACKBONE
+
+    #-internet backbone-------------#
+    #                               #
+    #   #global isp 1#              #
+    #               |               #
+    #              #global isp 2#   #
+    #                               #
+    #   IXP                         # IXP: internet exchange point
+    #                               #
+    #-------------------------------#
+
+    internet exchange points work in order to make the internet backbone to work synchrounously and for global isps to
+     with one another more efficiently
+
+you don't have to connect to a local isp in order to connect to the internet. you could connect to a regional/global
+ isp if these had a service for your location
+

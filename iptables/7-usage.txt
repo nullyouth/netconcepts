@@ -1,0 +1,115 @@
+==== output of iptables -L
+=
+    Chain INPUT (policy ACCEPT)
+    target     prot opt source               destination         
+    
+    Chain FORWARD (policy ACCEPT)
+    target     prot opt source               destination         
+    
+    Chain OUTPUT (policy ACCEPT)
+    target     prot opt source               destination         
+=
+
+not specifying a table will make the assumption you want to operate with FILTER table ( default and main table ),
+ that's because you can only see 3 chains ( INPUT, FORWARD, OUTPUT ): the FILTER table chains
+the default policy for all of these chains ( FILTER table chains ) is ACCEPT -> all connections are set to ACCEPT and
+ all of the packets are set to ACCEPT so they will be processed
+
+'prot' column refers to the protocol
+'source' refers to the source address and 'destination' to the destination address
+
+
+==== iptables -PINPUT DROP
+equivalent of iptables --policy INPUT DROP
+
+this commands will also operate on FILTER because we're not specifying any table
+this makes all incoming packets to not reach their destination because they're being dropped
+
+if you wanted to operate on MANGLE:
+iptables -tmangle -PINPUT DROP
+
+
+==== iptables -I INPUT -s 142.251.133.46 -j DROP
+will insert this rule to the selected chain ( INPUT ) to the top ( -I ) of the list
+    (( because iptables will go through the rule list sequentially from top to bottom reading them ))
+
+one thing i've noticed is that if we have many rules on the same chain that drop the packets, but we have one (or more)
+ ACCEPT targets, wherever the rule is placed in the list, it will accept always
+say for example: (iptables -L)
+=
+    Chain INPUT (policy ACCEPT)
+    target     prot opt source               destination         
+    DROP       all  --  eze10s02-in-f14.1e100.net  anywhere            
+    DROP       all  --  eze10s02-in-f14.1e100.net  anywhere            
+    DROP       all  --  eze10s02-in-f14.1e100.net  anywhere            
+    ACCEPT     all  --  eze10s02-in-f14.1e100.net  anywhere            
+    DROP       all  --  eze10s02-in-f14.1e100.net  anywhere            
+    DROP       all  --  eze10s02-in-f14.1e100.net  anywhere            
+    
+    Chain FORWARD (policy ACCEPT)
+    target     prot opt source               destination         
+    
+    Chain OUTPUT (policy ACCEPT)
+    target     prot opt source               destination         
+=
+
+packet dropping will not take place, instead, ACCEPT would... this happens with INPUT, OUTPUT (have tested this with
+ these two chains... but my theory is that this works like that on every chain) and others
+
+if we wanted to insert the rule at the bottom of the list (to append the list) we would have to use -A instead of -I
+
+
+==== iptables -I OUTPUT -d 93.184.216.34 -j DROP
+same as before, but with OUTPUT chain. Note that if the chain is OUTPUT, that means that we shouldn't use -s to specify
+ the address... we use -d because packets that go through OUTPUT chain, go to a destination address!!
+if we put
+-> iptables -I OUTPUT -s 93.184.216.34 -j DROP
+will not have the desired effect (dropping packets that go to the address 93.184.216.34), but instead, will drop
+ packets that go from 93.184.216.34 to anywhere
+
+
+==== iptables -L --line-numbers
+=
+    Chain INPUT (policy ACCEPT)
+    num  target     prot opt source               destination         
+    1    ACCEPT     all  --  93.184.216.34        anywhere            
+    2    DROP       all  --  93.184.216.34        anywhere            
+    3    DROP       all  --  93.184.216.34        anywhere            
+    
+    Chain FORWARD (policy ACCEPT)
+    num  target     prot opt source               destination         
+    
+    Chain OUTPUT (policy ACCEPT)
+    num  target     prot opt source               destination         
+=
+will create a new column on the output -> num
+we can see every rule has its number. So we could delete a specific rule indicating its number!
+-> iptables -D INPUT 1
+after running we have
+=
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination         
+1    DROP       all  --  93.184.216.34        anywhere            
+2    DROP       all  --  93.184.216.34        anywhere            
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination         
+=
+
+one thing to note here is that if the address is displayed with numbers without specifying the -n option
+ (iptables -nL) the command (iptables -L) will struggle trying to translate the ip number to a dns name, causing the
+ command to take more time to conclude
+
+
+==== iptables -I OUTPUT -p tcp --dport 80 -j DROP
+will cause every packet trying to make an http connection ((through port 80)) to be DROPped
+basically: blocked every non http secure connection
+note that if we wanted to operate with the INPUT chain, we should use --sport instead of --dport
+
+
+==== let's say I have set up an apache server and I want to block every connection except my ip
+iptables -I INPUT -p tcp --dport 80 -j DROP
+iptables -I INPUT -p tcp --dport 80 -s <my_ip> -j ACCEPT

@@ -1,0 +1,16 @@
+the term target refers to what is going to happen to a particular packet once it has matched a particular rule
+
+available targets:
+    ACCEPT
+        stop processing and allow the packet to flow into the service that it was intended to
+        ACCEPT ssh connections -> allow the packet to travel into the ssh service
+
+    REJECT
+        drop the packet and send feedback to the user
+
+    DROP
+        drop the packet with no feedback, like if the packet wasn't ever even sent to the system
+
+if a packet comes into the system and there's no firewall rule that matches that specific packet, it will use the
+ default polices or the default rule that we created. If there's no default rule, the packet will simply be accepted by
+ the system

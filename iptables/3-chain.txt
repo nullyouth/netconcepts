@@ -1,0 +1,46 @@
+tags that define and match packets to the estate
+chains are like points in the route of a packet where you can apply rules
+
+5 chains in iptables: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING
+all chains are not available for all tables
+
+FILTER: INPUT, FORWARD, OUTPUT
+
+NAT:    PREROUTING, OUTPUT, POSTROUTING
+
+MANGLE: PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING
+
+each chain is responsible for processing packets based on their type
+packets being sent into the target will be processed by the INPUT chain, packets sent out of the system will be
+ processed by the OUTPUT chain, packets forwarded from your computer to another computer using your computer will be
+ processed by the FORWARD
+
+PREROUTING:
+    applies to any incoming packet after entering the network stack
+    applies before any routing decisions regarding where to send the packet
+    used after the packet has entered the network interface
+
+INPUT:
+    is a point post-PREROUTING
+    when the packet enters the system
+    used to incoming packets and connections to a particular service or protocol
+
+FORWARD:
+    applied to a packet that is forwarded through your system
+    used to forward incoming packets from their source to their destination
+    if the packet is sent to you and the destination is not set to your ip, forwarding takes place, so the FORWARD
+     is responsible for managing that
+
+OUTPUT:
+    applied to a packet originated from your system and going out
+    used for outgoing packets after they have been created or processed
+
+POSTROUTING:
+    opposite of PREROUTING
+    applied to outgoing or forwarded traffic after the routing decision takes place
+    used before the packet leaves the network interface, after the destination has been decided
+
+packets transversal order:
+    incoming packets destined for the local system: PREROUTING -> INPUT
+    incoming packets destined to another host: PREROUTING -> FORWARD -> POSTROUTING
+    locally generated packets: OUTPUT -> POSTROUTING

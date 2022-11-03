@@ -1,0 +1,31 @@
+How a packet moves over the internet?
+
+PCa wants to send a packet to PCb
+    PCa sends the packet to the switch
+    LANa switch looks the packet destination address
+    switch-a sends packet to the router-a
+    router-a looks the packet contents and learns it destination and understands that it must send it to a different
+     network LAN -> LANb
+    router-a sends the packet through the ISP cable (this cable communicates LANa to the internet), to another router:
+     router-x
+    router-x receives the packet through one of its ports
+    that router-x has many options to decide: to which router I must send the packet to reach its destination as fast
+     as possible?
+        Each router must have a special table inside called 'Routing Table' -> this table tells us which route the
+         packet should use
+    so, router-x will look al the Routing Table to learn which path it must send the packet according to the
+     information on the Routing Table -> we call this operation 'Forwarding'
+    Forwarding happens on each router, each router has a Routing Table
+    the Routing Table is created by the router's hardware by using special algorithms
+    while making the Forwarding decision, the router ignores the path which the packet came from (it makes no sense
+     sending the packet back to where it came from)
+    the same process will occur every time at each router the packet reaches until the packet reaches LANb
+    if a path were to busy (too many packets are traveling) the router will not send the packet over that path
+    the packet reaches LANb arriving at router-b
+    router-b sends packet to switch-b
+    switch-b redirects packet through PCb's port
+    the packet sent from PCa has reached its destination (all this process happening in a few milliseconds)
+
+INTERNET IS THE NETWORK OF NETWORKS
+
+The combination of all LANs connected to ISPs make internet. The combination of all LANs is the internet

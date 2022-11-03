@@ -1,0 +1,27 @@
+we have 2 offices that belong to the same office separated by a distance of 100 mts (short)
+we can connect switch-1 to switch-2 to create a LAN. We can create a LAN by connecting 2 switches that are at a short
+ distance away from the other
+this types of LANs are called Campus Area Networks (CAN) <- a special type of LAN. Used on universities
+
+but, which one is more secure? WAN with VPN or LAN created by connecting switches together?
+LAN is more secure because in the communication within the LAN, the packet never passes over the internet, the packet
+ always moves on our own cable
+
+there is a WAN that could be more secure than a LAN: a private WAN
+the line between the offices is dedicated for the company. The line is provided by the ISP. ISP WAN Network
+making a private WAN can be quite costly, especially over long distances
+
+we use switch devices to create LANs, and we use routers to create WANs
+
+               #--------#
+               #internet#
+               #--------#
+                    |
+                    |
+                #router#
+                 |    |
+        #switch 1#    #switch 2#
+        |       |       |     |
+    #pc 1#  #pc 2#    #pc 3#  #pc 4#
+
+the main task of a router is to connect different networks

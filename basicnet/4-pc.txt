@@ -1,0 +1,11 @@
+as soon as you click on a video on a page, the pc generates a packet containing the request message, and sends it to
+ the webpage (say www.youtube.com)
+youtube will respond with many packets, let's say, pieces of the video, returning to your computer
+this process youtube is doing: sending the video piece by piece, is called "STREAMING"
+
+communicating in internet refers to sending packets through internet and receiving packets from internet
+
+avoiding Single Point of Failure, youtube also has many servers distributed all around the world
+the one that you normally connect, is the best suited server (location, response time, ...)
+all servers have the same information. The youtube servers are called distributed servers
+distributed servers prevent Single Point of Failure and provide Load Balancing

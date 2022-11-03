@@ -1,0 +1,15 @@
+netconcepts - internet concepts
+===============================
+These are the notes I'm taking while learning general (for now) internet concepts
+
+
+nvim rules
+----------
+colorscheme default
+set colorcolumn=120
+
+
+Resources
+---------
+- basicnet/ https://www.youtube.com/watch?v=zN8YNNHcaZc
+- iptables/ https://www.youtube.com/watch?v=6Ra17Qpj68c https://www.youtube.com/watch?v=vbhr4csDeI4

@@ -1,0 +1,27 @@
+a table within iptables is a collection of chains that serves a particular function
+responsible for doing or handling certain aspect of networking
+
+unique pieces of networking's functionality are separated in form of tables
+
+there are 5 tables in iptables:
+    (( 3 main tables -- the first 3 mentioned below ))
+    each table has different rules that can be applied to them
+
+    1st FILTER (( default -- main ))
+        filtering ingoing and outgoing traffic -> let or not a packet continue to its destination
+        sometimes if you don't specify the table, the rule will apply to FILTER
+
+    2nd NAT
+        provides Network Address Translation rules to determine how to modify the packet source and destination address
+
+    3rd MANGLE
+        modifying packets
+        modifying ip headers of the packet
+
+    (( non-main tables below ))
+
+    4th RAW
+        connection tracking, marking packets to view them as a part of an ongoing connection or session
+
+    5th SECURITY
+        related to SELinux. Set internal SELinux
